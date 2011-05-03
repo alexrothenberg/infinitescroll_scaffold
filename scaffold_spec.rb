@@ -17,7 +17,8 @@ Scaffoldhub::Specification.new do
 
     # Tag(s) to help scaffoldhub.org users find your scaffold
     tag 'jquery'
-    tag 'infinitescroll'
+    tag 'ajax'
+    tag 'kaminari'
     tag 'pagination'
 
     # Optionally post a link to an article you write explaining how the scaffold works.

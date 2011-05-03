@@ -20,7 +20,7 @@
 <%%= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path %>
 
 <h2>About Infinite Scrolling</h2>
-Have you ever wondered how Facebook and Twitter automatically load more updates and tweeds as as you scroll to the bottom of the page? This scaffold shows you how by combining pagination using the <%= link_to 'kaminari', 'https://github.com/amatsuda/kaminari' %> with some AJAX to make the "next page" requests as you scroll down giving the impression of a page that keeps on scrolling'
+Have you ever wondered how Facebook and Twitter automatically load more updates and tweeds as as you scroll to the bottom of the page? This scaffold shows you how by combining pagination using the <%%= link_to 'kaminari', 'https://github.com/amatsuda/kaminari' %> with some AJAX to make the "next page" requests as you scroll down giving the impression of a page that keeps on scrolling'
 <br />
 <br />
 If the list on this page is not long enough to scroll please run 'rake db:populate:<%= plural_table_name %>' to add more <%= plural_table_name %> to your database.
