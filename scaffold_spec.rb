@@ -10,7 +10,7 @@ Scaffoldhub::Specification.new do
   metadata do
 
     # A short paragraph describing what this scaffold does
-    description 'Have you ever wondered how facebook and twitter automatically paginate as you scroll to the bottom of the page? This scaffold combines kaminari pagination with some AJAX to give you infinite scrolling on your page'
+    description 'Have you ever wondered how facebook and twitter automatically paginate as you scroll to the bottom of the page? This scaffold combines pagination with some AJAX to give you infinite scrolling.'
 
     # 4x3 aspect ratio screen shot
     screenshot 'infinitescroll_screenshot.png'
@@ -19,9 +19,6 @@ Scaffoldhub::Specification.new do
     tag 'jquery'
     tag 'infinitescroll'
     tag 'pagination'
-
-    # Optionally specify an example of a scaffold parameter
-    parameter_example 'FIELD_NAME'
 
     # Optionally post a link to an article you write explaining how the scaffold works.
     blog_post 'https://github.com/amatsuda/kaminari/wiki/How-To:-Create-Infinite-Scrolling-with-jQuery'
