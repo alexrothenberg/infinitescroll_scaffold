@@ -1,0 +1,67 @@
+<h1>Infinitely scrolling list of <%= plural_table_name %></h1>
+
+<table id=<%= plural_table_name %>>
+  <tr>
+    <th>id</th>
+<% for attribute in attributes -%>
+    <th><%= attribute.human_name %></th>
+<% end -%>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <%# fix once we have the rename syntax %>
+  <%%= render :partial=>'model', :collection=>@<%= plural_table_name %> %>
+</table>
+
+<br />
+
+<%%= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path %>
+
+<h2>About Infinite Scrolling</h2>
+Have you ever wondered how Facebook and Twitter automatically load more updates and tweeds as as you scroll to the bottom of the page? This scaffold shows you how by combining pagination using the <%= link_to 'kaminari', ''%> gem with some AJAX to give you infinite scrolling on your page'
+<br />
+<br />
+If this list is not long enough to scroll please run 'rake db:populate:<%= plural_table_name %>' to add more <%= plural_table_name %> to your database.
+
+<br />
+<br />
+This example is based on 
+<ul>
+  <li><%%= link_to 'An example on the Kaminari wiki', 'https://github.com/amatsuda/kaminari/wiki/How-To:-Create-Infinite-Scrolling-with-jQuery'%>
+  <li><%%= link_to 'Railscast episode 114',           'http://railscasts.com/episodes/114-endless-page'%>
+</ul>
+
+<script type="text/javascript">
+(function() {
+  var page = 1,
+      loading = false;
+
+  function nearBottomOfPage() {
+    return $(window).scrollTop() > $(document).height() - $(window).height() - 200;
+  }
+
+  $(window).scroll(function(){
+    if (loading) {
+      return;
+    }
+
+    if(nearBottomOfPage()) {
+      loading=true;
+      page++;
+      $.ajax({
+        url: '/<%= plural_table_name %>?page=' + page,
+        type: 'get',
+        dataType: 'script',
+        success: function() {
+          // $(window).sausage('draw');
+          loading=false;
+        }
+      });
+    }
+  });
+
+  // $(window).sausage();
+}());
+</script>
