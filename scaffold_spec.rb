@@ -25,9 +25,11 @@ Scaffoldhub::Specification.new do
     blog_post 'https://github.com/amatsuda/kaminari/wiki/How-To:-Create-Infinite-Scrolling-with-jQuery'
   end
 
+  gem 'kaminari'
+
   # Define a model template - this ERB file will be used to generate a new
   # model class with this path & filename: app/models/NAME.rb
-  model 'templates/model.rb'
+  model 'templates/model.rb', :rename => 'NAME.rb'
 
   # Define an ActiveRecord migration template - this ERB file will be used to generate a new
   # migration class with this path & filename: db/migrate/TIMESTAMP_create_PLURAL_NAME.rb
@@ -35,36 +37,26 @@ Scaffoldhub::Specification.new do
 
   # Define a controller template - this ERB file will be used to generate a new
   # controller class with this path & filename: app/controllers/PLURAL_NAME.rb
-  controller 'templates/controller.rb'
+  controller 'templates/controller.rb', :rename=> 'PLURAL_NAME_controller.rb'
 
   # You can use "with_options" to specify the same source folder for a series of templates:
   # You can also specify the same destination folder using the :dest option,
   # or just use the :src and :dest options on each keyword.
   with_options :src => 'templates' do
     view '_form.html.erb'
-    view '_model.html.erb'
+    view '_model.html.erb', :rename => '_NAME.html.erb'
     view 'new.html.erb'
     view 'edit.html.erb'
     view 'index.js.erb'
     view 'index.html.erb'
     view 'show.html.erb'
 
-    view 'layout.erb',  :dest => 'app/views/layouts'
+    template 'layout.html.erb', :dest => 'app/views/layouts', :rename => 'PLURAL_NAME.html.erb'
     template 'db_populate.rake', :dest => 'lib/tasks'
   end
 
   with_options :src => 'templates/javascripts', :dest => 'public/javascripts' do
     file 'jquery-1.6.min.js'
   end
-
-
-  # Other keywords available are:
-
-  # Define any other generic template - this ERB file will be used to generate
-  # a new file - the dest option is required to indicate where to put the new file
-  # template 'xyz.html.erb', :dest => 'path/to/xyz.html'
-
-  # Copy any file without running an ERB transformation
-  # file 'xyz.html', :dest => 'path/to/xyz.html'
 
 end
