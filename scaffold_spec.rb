@@ -12,6 +12,17 @@ Scaffoldhub::Specification.new do
     # A short paragraph describing what this scaffold does
     description 'Have you ever wondered how facebook and twitter automatically paginate as you scroll to the bottom of the page? This scaffold combines pagination with some AJAX to give you infinite scrolling.'
 
+    post_install_message <<-MESSAGE
+    Your infinitely scrolling PLURAL_NAME scaffold has been created.
+    To see it in action:
+      1. "bundle install" to install the kaminari gem
+      2. "rake db:migrate" to create your new PLURAL_NAME database table
+      3. "rake db:populate:PLURAL_NAME" to create 100 sample NAME records
+      4. "rails s" to start your server
+      5. open http://localhost:3000/PLURAL_NAME
+    Have fun scrolling!
+    MESSAGE
+
     # 4x3 aspect ratio screen shot
     screenshot 'infinitescroll_screenshot.png'
 
